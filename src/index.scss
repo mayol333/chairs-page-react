@@ -58,3 +58,55 @@ list-style-type: none;
     margin-top: 5px;
     list-style-type: none;
 }
+.first-section{
+    height: 500px;
+    background-color: rgb(223, 217, 217);
+    width: 100%;
+    background: linear-gradient(180deg, white,rgb(192, 188, 188));   
+}
+.click{
+    font-size: 75px;
+    background-color: transparent;
+    color: #24baa0;
+    
+}
+.active:active{
+    opacity: 0.5;   
+}
+.click:hover{
+    cursor: pointer;;
+}
+.headline{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+.headline span{
+    color: #24baa0;
+}
+.describe{
+    text-align: center;
+    line-height: 1.5;
+}
+.click-two{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #24baa0;
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 20px;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.first-click{
+    margin-right: 40px;
+}
+.second-click{
+    margin-left: 40px;
+}
