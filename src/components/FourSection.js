@@ -1,76 +1,126 @@
+import { Select } from "./Select";
+import { useState } from "react";
 export const FourSection = () => {
+    const softSelect = [
+        {
+            feature: "Wybierz rodzaj",
+            value: 0,
+        },
+        {
+            feature: "Miękki",
+            value: 40,
+        },
+        {
+            feature: "Twardy",
+            value: 30,
+        },
+    ];
+    const colorSelect = [
+        {
+            feature: "Wybierz kolor",
+            value: 0,
+        },
+        {
+            feature: "Czerwony",
+            value: 20,
+        },
+        {
+            feature: "Czarny",
+            value: 15,
+        },
+    ];
+    const materialSelect = [
+        {
+            feature: "Wybierz materiał",
+            value: 0,
+        },
+        {
+            feature: "Skóra",
+            value: 50,
+        },
+        {
+            feature: "Wełna",
+            value: 40,
+        },
+        {
+            feature: "Drewno",
+            value: 45,
+        },
+    ];
+    const [softPrice, setSoftPrice] = useState(0);
+    const [colorPrice, setColorPrice] = useState(0);
+    const [materialPrice, setMaterialPrice] = useState(0);
+    const [transport, setTransport] = useState(false);
+    const transportPrice = transport ? 10 : 0;
+    const finalPrice = softPrice + colorPrice + materialPrice + transportPrice;
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event);
+    };
     return (
-        <section class="four-section">
-            <div class="width-four-section">
-                <div class="choice1">
-                    <p class="krzesło1">skomponuj swoje krzesło</p>
-                    <select id="softness" class="input1 rodzaj">
-                        <option value="0">Wybierz rodzaj</option>
-                        <option value="40">Miękki</option>
-                        <option value="30">Twardy</option>
-                    </select>
-                    <select id="color" class="input1 kolor">
-                        <option value="0">Wybierz kolor</option>
-                        <option value="20">Czerwony</option>
-                        <option value="15">Czarny</option>
-                    </select>
-                    <select id="source" class="input1 material">
-                        <option value="0">Wybierz materiał</option>
-                        <option value="50">Skóra</option>
-                        <option value="40">Wełna</option>
-                        <option value="45">Drewno</option>
-                    </select>
-                    <div class="checkbox">
-                        <input
-                            id="transport"
-                            value="10"
-                            class="checkbox1"
-                            type="checkbox"
+        <section className="four-section">
+            <form onSubmit={handleSubmit}>
+                <div className="width-four-section">
+                    <div className="choice1">
+                        <p className="krzesło1">skomponuj swoje krzesło</p>
+                        <Select
+                            options={softSelect}
+                            handlePrice={setSoftPrice}
                         />
-                        <p>Transport</p>
-                    </div>
-                </div>
-                <div class="red-img">
-                    <img src="images/red_chair.png" alt="" />
-                </div>
-                <div class="consume">
-                    <p class="krzesło">podsumowanie</p>
-                    <div class="sum">
-                        <p class="twój-fotel">twój fotel</p>
-                        <table class="whole-table">
-                            <tr>
-                                <td id="softnessText" class="table"></td>
-                                <td id="softnessPrice"></td>
-                            </tr>
-                            <tr>
-                                <td id="colorText" class="table"></td>
-                                <td id="colorPrice"></td>
-                            </tr>
-                            <tr>
-                                <td id="sourceText" class="table"></td>
-                                <td id="sourcePrice"></td>
-                            </tr>
-                            <tr>
-                                <td id="transportText" class="table"></td>
-                                <td id="transportPrice"></td>
-                            </tr>
-                        </table>
-                        {/* <div class="cena-koloru">
-            <p class="color">color</p>
-            <p class="color-price">0</p>
-            </div>
-            <div class="cena-materialu">
-            <p class="source">source</p>
-            <p class="source-price">0</p>
-            </div>  */}
-                        <div class="podsumowanie">
-                            <p class="suma">suma</p>
-                            <p class="final-price">0</p>
+                        <Select
+                            options={colorSelect}
+                            handlePrice={setColorPrice}
+                        />
+                        <Select
+                            options={materialSelect}
+                            handlePrice={setMaterialPrice}
+                        />
+                        <div className="checkbox">
+                            <input
+                                onChange={() => setTransport(!transport)}
+                                checked={transport}
+                                className="checkbox1"
+                                type="checkbox"
+                            />
+                            <p>Transport</p>
                         </div>
                     </div>
-                    <button class="join-click-last active">zamawiam</button>
+                    <div className="red-img">
+                        <img src="images/red_chair.png" alt="" />
+                    </div>
+                    <div className="consume">
+                        <p className="krzesło">podsumowanie</p>
+                        <div className="sum">
+                            <p className="twój-fotel">twój fotel</p>
+                            <table className="whole-table">
+                                <tr>
+                                    <td className="table"></td>
+                                    <td>{softPrice}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table"></td>
+                                    <td>{colorPrice}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table"></td>
+                                    <td>{materialPrice}</td>
+                                </tr>
+                                <tr>
+                                    <td className="table"></td>
+                                    <td>{transportPrice}</td>
+                                </tr>
+                            </table>
+                            <div className="podsumowanie">
+                                <p className="suma">suma</p>
+                                <p className="final-price">{finalPrice}</p>
+                            </div>
+                        </div>
+                        <button className="join-click-last active">
+                            zamawiam
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </section>
     );
 };

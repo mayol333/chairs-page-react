@@ -1,13 +1,13 @@
 export const FiveSection = () => {
     return (
-        <section class="five-section">
-            <div class="width-five-section">
-                <div class="kontakt">
-                    <p class="contact">kontakt</p>
-                    <input class="name" type="text" placeholder="Imię" />
-                    <input class="email" type="text" placeholder="email" />
+        <section className="five-section">
+            <div className="width-five-section">
+                <div className="kontakt">
+                    <p className="contact">kontakt</p>
+                    <input className="name" type="text" placeholder="Imię" />
+                    <input className="email" type="text" placeholder="email" />
                     <textarea
-                        class="message"
+                        className="message"
                         name=""
                         id=""
                         cols="30"
@@ -15,17 +15,17 @@ export const FiveSection = () => {
                         placeholder="Wiadomość"
                     ></textarea>
                 </div>
-                <div class="send">
+                <div className="send">
                     <img
                         alt=""
-                        class="last-photo"
+                        className="last-photo"
                         src="/public/images/red_chair.png"
                     />
-                    <label class="label" for="">
-                        <input class="confirm" type="checkbox" />
+                    <label className="label" for="">
+                        <input className="confirm" type="checkbox" />
                         Zgadzam się na przetwarzanie danych osobowych
                     </label>
-                    <button class="last-click active">wyślij</button>
+                    <button className="last-click active">wyślij</button>
                 </div>
             </div>
         </section>
